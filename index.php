@@ -1,39 +1,66 @@
-<?php
-
-
-$token = "5278683226:AAFXMljfvWo6_1Qle4In4AN2VXxy1mK5als";
-$web = "https://api.telegram.org/file/bot".$token;
-$link1 = "https://api.telegram.org/bot".$token;
-
-
-$updates = file_get_contents('php://input');
-$updates = json_decode($updates, TRUE);
-//updates
-$msgID = $updates['message']['from']['id'];
-$name = $updates['message']['from']['first_name'];
-$text = $updates['message']['text'];
-
-//if msg
-switch($text)
-{
-		case"/start":
-		sendmsg($msgID,"welcome $name");
-		break;
-		case"hello":
-        sendmsg($msgID,"hellow $name");    
-		break;	
-}
-//functions
-function sendmsg($msgID,$text){
-    $url=$GLOBALS[link1].'/sendMessage?chat_id='.$msgID.'&text='.urlencode($text);
-    file_get_contents($url);
-
-
-
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
 }
 
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
 
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
 
+<h2>HTML Table</h2>
 
+<table>
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Centro comercial Moctezuma</td>
+    <td>Francisco Chang</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>Ernst Handel</td>
+    <td>Roland Mendel</td>
+    <td>Austria</td>
+  </tr>
+  <tr>
+    <td>Island Trading</td>
+    <td>Helen Bennett</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>Laughing Bacchus Winecellars</td>
+    <td>Yoshi Tannamuri</td>
+    <td>Canada</td>
+  </tr>
+  <tr>
+    <td>Magazzini Alimentari Riuniti</td>
+    <td>Giovanni Rovelli</td>
+    <td>Italy</td>
+  </tr>
+</table>
 
-?>
+</body>
+</html>
+
